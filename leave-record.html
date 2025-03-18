@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Record Form</title>
+    
+    <!-- ✅ Add html2canvas Library Here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #ff7a00, #ff007d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+        .form-container {
+            background: #ffffff;
+            width: 800px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .header-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: #3f51b5;
+        }
+        .sub-header-text {
+            font-size: 18px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 16px;
+        }
+        td:first-child {
+            font-weight: 600;
+            color: #333;
+        }
+        input[type="text"], input[type="date"], input[type="time"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-top: 5px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        input:focus {
+            border-color: #3f51b5;
+            box-shadow: 0 0 5px rgba(63, 81, 181, 0.3);
+        }
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .radio-group input { margin-right: 5px; }
+        .btn-submit {
+            background: linear-gradient(135deg, #ff007d, #ff7a00);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #ff7a00, #ff007d);
+            box-shadow: 0 5px 15px rgba(255, 0, 125, 0.3);
+        }
+        .upload-container {
+            margin-top: 20px;
+            width: 100%;
+        }
+        .upload-container input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="header">
+            <h1><div class="header-text">NTTF TECHNICAL TRAINING FOUNDATION</div></h1>
+            <div class="sub-header-text">Securing your Future with your own hands</div>
+        </div>
+        <table>
+            <tr>
+                <td><strong>Name of the Trainee:</strong></td>
+                <td><input type="text" name="name" id="name" placeholder="Enter Name"></td>
+            </tr>
+            <tr>
+                <td><strong>Token No:</strong></td>
+                <td><input type="text" name="token" id="token" placeholder="Enter Token No"></td>
+            </tr>
+            <tr>
+                <td><strong>Nature of Leave:</strong></td>
+                <td class="radio-group">
+                    <label><input type="radio" name="leave_type" value="Medical Leave"> Medical Leave</label>
+                    <label><input type="radio" name="leave_type" value="Extraordinary Leave"> Extraordinary Leave</label>
+                    <label><input type="radio" name="leave_type" value="Absent"> Absent</label>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Reason:</strong></td>
+                <td><input type="text" name="reason" id="reason" placeholder="Enter Reason"></td>
+            </tr>
+            <tr>
+                <td><strong>Date:</strong></td>
+                <td><input type="date" name="date" id="date"></td>
+            </tr>
+            <tr>
+                <td><strong>From:</strong></td>
+                <td><input type="time" name="from" id="from"></td>
+            </tr>
+            <tr>
+                <td><strong>To:</strong></td>
+                <td><input type="time" name="to" id="to"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Hours:</strong></td>
+                <td><input type="number" name="total_hours" id="total_hours" value="7"></td>
+            </tr>
+            <tr>
+                <td><strong>Cumulative Leave Hours:</strong></td>
+                <td><input type="number" name="cumulative_hours" id="cumulative_hours" value="0"></td>
+            </tr>
+        </table>
+
+        <div class="upload-container">
+            <label><strong>Upload Files (Images, PDFs, etc.):</strong></label>
+            <input type="file" id="file-upload" name="files" accept="image/*,.pdf,.doc,.docx" multiple>
+        </div>
+
+        <button class="btn-submit" id="submit-btn">Upload</button>
+    </div>
+
+    <!-- ✅ Include script.js -->
+    <script src="script.js"></script>
+</body>
+</html>
